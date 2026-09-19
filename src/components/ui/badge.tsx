@@ -1,0 +1,22 @@
+import { cn } from "@/lib/utils";
+
+export function Badge({
+  className,
+  tone = "default",
+  ...props
+}: React.ComponentProps<"span"> & { tone?: "default" | "sage" | "warn" | "danger" | "line" }) {
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-medium tracking-wide uppercase",
+        tone === "default" && "bg-bg-subtle text-muted",
+        tone === "sage" && "bg-sage/15 text-sage",
+        tone === "warn" && "bg-warn/15 text-warn",
+        tone === "danger" && "bg-danger/15 text-danger",
+        tone === "line" && "shadow-[var(--shadow-border)] text-muted",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
